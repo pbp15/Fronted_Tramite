@@ -6,6 +6,34 @@
         <i class="nc-icon nc-chart-pie-35"></i>
         <p>Dashboard</p>
       </sidebar-link>
+
+     <sidebar-link to="/admin/unidades-orgánicas">
+        <i class="nc-icon nc-vector"></i>
+        <p>Und. Organicas</p>
+      </sidebar-link>
+
+
+        <sidebar-link to="/admin/usuarios">
+        <i class="nc-icon nc-circle-09"></i>
+        <p>Usuarios</p>
+      </sidebar-link>
+
+         <sidebar-link to="/admin/roles">
+        <i class="nc-icon nc-bullet-list-67"></i>
+        <p>Roles</p>
+      </sidebar-link>
+
+      <sidebar-link to="/admin/trámites">
+        <i class="nc-icon nc-layers-3"></i>
+        <p> Trámites</p>
+      </sidebar-link>
+
+       <sidebar-link to="/admin/reportes">
+        <i class="nc-icon nc-notes"></i>
+        <p>Reportes</p>
+      </sidebar-link>
+
+
       <sidebar-link to="/admin/user">
         <i class="nc-icon nc-circle-09"></i>
         <p>User Profile</p>
@@ -30,6 +58,9 @@
         <i class="nc-icon nc-bell-55"></i>
         <p>Notifications</p>
       </sidebar-link>
+
+  
+
 
       <template slot="bottom-links">
         <sidebar-link class="active"

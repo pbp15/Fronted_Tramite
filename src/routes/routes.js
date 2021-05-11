@@ -3,6 +3,12 @@ import DashboardLayout from '../layout/DashboardLayout.vue'
 import NotFound from '../pages/NotFoundPage.vue'
 
 // Admin pages
+
+//PAGINA WEB 
+import Profesores from 'src/pages/Profesores.vue'
+import Unidades from 'src/pages/Unidades.vue'
+
+//PANEL ADMNISTRADOR
 import Overview from 'src/pages/Overview.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
 import TableList from 'src/pages/TableList.vue'
@@ -27,6 +33,16 @@ const routes = [
         path: 'overview',
         name: 'Overview',
         component: Overview
+      },
+      {
+        path: 'profesores',
+        name: 'Profesores',
+        component: Profesores
+      },
+      {
+        path: 'unidades-organicas',
+        name: 'Unidades',
+        component: Unidades
       },
       {
         path: 'user',
