@@ -5,11 +5,12 @@
                 <li class="breadcrumb-item"><a href="/">Escritorio</a></li>
             </ol>
             <div class="container-fluid">
+                 <p class="text-center mb-2 font-weight-bold  ">
+                      ROLES
+                  </p>
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
-                    <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Roles
-                    </div>
+                   
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-md-6">

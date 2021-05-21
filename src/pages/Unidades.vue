@@ -6,17 +6,25 @@
     </ol>
     <div class="container-fluid">
         <!-- Ejemplo de tabla Listado -->
+        <p class="text-center mb-2 font-weight-bold  ">
+            UNIDADES ORGÁNICAS
+        </p>
+    
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> Unidades Orgánicas
-                <button type="button" @click="abrirModal('oficina','registrar')" class="btn btn-secondary">
+                 <button type="button" @click="abrirModal('oficina','registrar')" class="btn btn-secondary">
                     <i class="icon-plus"></i>&nbsp;Nuevo
                 </button>
+                <!-- <i class="nc-icon nc-vector" ></i> Unidades Orgánicas -->
+           
             </div>
             <div class="card-body">
+               
                 <div class="form-group row">
                     <div class="col-md-6">
+                 
                         <div class="input-group">
+                            
                             <select class="form-control col-md-3" id="opcion" name="opcion">
                                 <option value="nombre">Nombre</option>
                                 <option value="responsable">Responsable</option>

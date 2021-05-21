@@ -5,10 +5,13 @@
         <li class="breadcrumb-item"><a href="/">Escritorio</a></li>
     </ol>
     <div class="container-fluid">
+        <p class="text-center mb-2 font-weight-bold  ">
+                   GESTIÓN DE TRÁMITES
+                  </p>
         <!-- Ejemplo de tabla Listado -->
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> Registro de expedientes
+            
                 <button type="button" @click="abrirModal('expediente','registrar')" class="btn btn-secondary">
                     <i class="icon-plus"></i>&nbsp;Nuevo
                 </button>
