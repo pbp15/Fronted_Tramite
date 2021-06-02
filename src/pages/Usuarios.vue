@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Role</label>
+                                    <label class="col-md-3 form-control-label" for="email-input">Rol</label>
                                     <div class="col-md-9">
                                         <select v-model="idrol" class="form-control">
                                             <option value="0" disabled>Seleccione</option>
@@ -189,6 +189,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         data (){
             return {
@@ -254,8 +255,12 @@
         methods : {
             listarPersona (page,buscar,criterio){
                 let me=this;
-                var url= '/user?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
-                axios.get(url).then(function (response) {
+              let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+                }
+                var url= 'http://127.0.0.1:8000/api/user';
+                axios.get(url,{headers}).then(function (response) {
                     var respuesta= response.data;
                     me.arrayPersona = respuesta.personas.data;
                     me.pagination= respuesta.pagination;
@@ -266,8 +271,12 @@
             },
             selectRol(){
                 let me=this;
-                var url= '/rol/selectRol';
-                axios.get(url).then(function (response) {
+                 let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+                }
+                var url= 'http://127.0.0.1:8000/api/rol/selectrol';
+                axios.get(url, {headers}).then(function (response) {
                     //console.log(response);
                     var respuesta= response.data;
                     me.arrayRol = respuesta.roles;
@@ -290,8 +299,13 @@
                 }
                 
                 let me = this;
+                  let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+            }  
 
-                axios.post('/user/registrar',{
+
+                axios.post('http://127.0.0.1:8000/api/user/registrar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
                     'num_documento' : this.num_documento,
@@ -302,7 +316,7 @@
                     'usuario': this.usuario,
                     'password': this.password
 
-                }).then(function (response) {
+                }, {headers}).then(function (response) {
                     me.cerrarModal();
                     me.listarPersona(1,'','nombre');
                 }).catch(function (error) {

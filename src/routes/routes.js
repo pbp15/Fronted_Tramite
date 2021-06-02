@@ -1,4 +1,5 @@
 import DashboardLayout from '../layout/DashboardLayout.vue'
+import Pagina from '../layout/Pagina.vue'
 // GeneralViews
 import NotFound from '../pages/NotFoundPage.vue'
 
@@ -22,8 +23,7 @@ import Upgrade from 'src/pages/Upgrade.vue'
 const routes = [
   {
     path: '/',
-    component: DashboardLayout,
-    redirect: '/admin/overview'
+    component: Pagina
   },
   {
     path: '/admin',
@@ -37,7 +37,7 @@ const routes = [
       },
   
       {
-        path: 'unidades-orgánicas',
+        path: 'unidades',
         name: 'Unidades',
         component: Unidades
       },

@@ -186,7 +186,7 @@
 </template>
 
 <script>
-
+  import axios from 'axios';
     export default {
         data(){
             return {
@@ -251,8 +251,12 @@
         methods : {
             listarExpediente(page){
                 let me = this;
-                var url= '/expediente?page='+page;
-                axios.get(url).then(function (response){
+                let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+                }  
+                var url= 'http://127.0.0.1:8000/api/expediente';
+                axios.get(url,{headers}).then(function (response){
                     var respuesta = response.data;
                     me.arrayExpediente = respuesta.expedientes.data;
                     me.pagination = respuesta.pagination;

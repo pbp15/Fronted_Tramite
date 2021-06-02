@@ -7,7 +7,7 @@
         <p>Dashboard</p>
       </sidebar-link>
 
-     <sidebar-link to="/admin/unidades-orgánicas">
+     <sidebar-link to="/admin/unidades">
         <i class="nc-icon nc-vector"></i>
         <p>Und. Organicas</p>
       </sidebar-link>

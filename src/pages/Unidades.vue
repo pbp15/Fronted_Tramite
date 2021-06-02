@@ -142,6 +142,8 @@
 
 <script>
 
+import axios from 'axios';
+
 export default {
     data(){
         return {
@@ -195,16 +197,23 @@ export default {
         }
     },
     methods : {
-        listarOficina(page){
+        listarOficina(){
             let me = this;
-            var url = '/oficina?page=' + page;
-            axios.get(url).then(function (response){
+
+            var url = 'http://127.0.0.1:8000/api/oficina';
+            let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+            } 
+            axios.get(url ,{headers}).then(function (response){
+
+                // console.log(res.data.oficinas);
                 var respuesta= response.data;
                 me.arrayOficina = respuesta.oficinas.data;
-                me.pagination= respuesta.pagination;
+                //me.pagination= respuesta.pagination;
             })
             .catch(function (error){
-                console.log(error);
+                console.log(error.response);
             });
         },
         cambiarPagina(page){
@@ -216,32 +225,62 @@ export default {
             me.listarOficina(page);
         },
         registrarOficina(){
+ 
             if (this.validarOficina()) {
                 return;
             }
             let me = this;
-            axios.post('/oficina/registrar',{
-                'nombre_oficina': this.nombre_oficina,
-                'responsable': this.responsable,
-                'condicion': this.condicion
-            }).then(function (response){
+            let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+            }  
+
+            let oficinaForm =  new FormData()
+             oficinaForm.append('nombre_oficina', this.nombre_oficina)
+             oficinaForm.append('responsable', this.responsable)
+             oficinaForm.append('condicion', this.condicion)
+
+
+            axios.post('http://127.0.0.1:8000/api/oficina/registrar',oficinaForm ,{headers})
+            .then(function (response){
                 me.cerrarModal();
                 me.listarOficina();
             })
             .catch(function (error){
                 console.log(error);
             });
+
+            //         axios.post('http://127.0.0.1:8000/api/oficina/registrar',{
+            //     'nombre_oficina': this.nombre_oficina,
+            //     'responsable': this.responsable,
+            //     'condicion': this.condicion
+            // },{headers}).then(function (response){
+            //     me.cerrarModal();
+            //     me.listarOficina();
+            // })
+            // .catch(function (error){
+            //     console.log(error);
+            // });
         },
         actualizarOficina(){
+             let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+            }  
+
             if (this.validarOficina()) {
                 return;
             }
             let me = this;
-            axios.put('/oficina/actualizar',{
-                'nombre_oficina': this.nombre_oficina,
-                'responsable': this.responsable,
-                'id': this.oficina_id
-            }).then(function (response){
+            
+            let oficinaForm =  new FormData()
+            oficinaForm.append('method', 'put')
+             oficinaForm.append('nombre_oficina', this.nombre_oficina)
+             oficinaForm.append('responsable', this.responsable)
+             oficinaForm.append('condicion', this.condicion)
+
+            axios.post('http://127.0.0.1:8000/api/oficina/actualizar',oficinaForm , {headers} )
+            .then(function (response){
                 me.cerrarModal();
                 me.listarOficina();
             })

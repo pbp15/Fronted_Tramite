@@ -70,6 +70,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         data (){
             return {
@@ -123,13 +124,19 @@
             }
         },
         methods : {
-            listarRol (page,buscar,criterio){
-                let me=this;
-                var url= '/rol?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
-                axios.get(url).then(function (response) {
+            listarRol (){
+                 let me=this;
+                 var url= 'http://127.0.0.1:8000/api/rol';
+                 let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+                }  
+
+               
+                axios.get(url, {headers}).then(function (response) {
+                    // console.log(response.data);
                     var respuesta= response.data;
                     me.arrayRol = respuesta.roles.data;
-                    me.pagination= respuesta.pagination;
                 })
                 .catch(function (error) {
                     console.log(error);
