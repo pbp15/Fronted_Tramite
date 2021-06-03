@@ -16,13 +16,6 @@
                         <div class="col-md-9 m-auto">
 
                             <div class="form-group row">
-                                <label class="col-md-3 form-control-label" for="text-input">Cabecera</label>
-                                <div class="col-md-9">
-                                    <input type="text" v-model="cabecera_documento" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label class="col-md-3 form-control-label" for="text-input">Tipo de documento</label>
                                 <div class="col-md-9">
                                     <select class="custom-select w-100" v-model="tipo_documento">
@@ -30,7 +23,25 @@
                                         <option>Solicitud</option>
                                         <option>Carta</option>
                                         <option>Informe</option>
+                                        <option>Acuerdo</option>
+                                        <option>Boletín</option>
+                                        <option>Expediente</option>
+                                        <option>Informe</option>
+                                        <option>Memorandum</option>
+                                        <option>Nota de Pedido</option>
+                                        <option>Notificación</option>
+                                        <option>Oficio</option>
+                                        <option>Proveído</option>
+                                        <option>Recibo de Pago</option>
+                                        <option>Resolución</option>                    
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="text-input">Cabecera</label>
+                                <div class="col-md-9">
+                                    <input type="text" v-model="cabecera_documento" class="form-control">
                                 </div>
                             </div>
 
@@ -47,6 +58,22 @@
                                     <input type="text" v-model="nro_folios" class="form-control">
                                 </div>
                             </div>
+
+                            
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="text-input">Remitente</label>
+                                <div class="col-md-9">
+                                    <input type="text" v-model="nombre" class="form-control">
+                                </div>
+                            </div>
+
+                              <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="text-input">Correo</label>
+                                <div class="col-md-9">
+                                    <input type="text" v-model="email" class="form-control">
+                                </div>
+                            </div>
+
 
                             <div class="form-group row">
                                 <label class="col-md-3 form-control-label" for="text-input">Subir documento</label>

@@ -259,7 +259,7 @@
                 axios.get(url,{headers}).then(function (response){
                     var respuesta = response.data;
                     me.arrayExpediente = respuesta.expedientes.data;
-                    me.pagination = respuesta.pagination;
+            //      me.pagination = respuesta.pagination;
                 })
                 .catch(function (error){
                     console.log(error);
@@ -289,6 +289,10 @@
                     return;
                 }
                 let me = this;
+                let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+                }  
                 axios.post('/expediente/registrar',{
                     'codigo_expediente': this.codigo_expediente,
                     'cabecera_documento': this.cabecera_documento,
@@ -300,7 +304,7 @@
                     'iduser': this.iduser,
                     'idoficina': this.idoficina,
                     'idexpediente': this.idexpediente
-                }).then(function (response){
+                } , {headers}).then(function (response){
                     me.cerrarModal();
                     me.listarExpediente();
                 }).catch(function (error){
@@ -312,6 +316,11 @@
                     return;
                 }
                 let me = this;
+                let headers = {
+                'Accept' :  'application/json',
+                'Authorization' : 'Bearer 1|PIeW9YK0mp71oLmpjFb6lrk1127e4JiqRam8uDOc'
+                } 
+                
                 axios.put('/expediente/actualizar',{
                     'codigo_expediente': this.codigo_expediente,
                     'cabecera_documento': this.cabecera_documento,
