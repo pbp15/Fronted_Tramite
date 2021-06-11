@@ -46,6 +46,11 @@
         <p>User Tramite</p>
       </sidebar-link>
 
+      <sidebar-link to="/admin/user-seguimiento">
+        <i class="nc-icon nc-circle-09"></i>
+        <p>User Seguimiento</p>
+      </sidebar-link>
+
 
       <sidebar-link to="/admin/icons">
         <i class="nc-icon nc-atom"></i>

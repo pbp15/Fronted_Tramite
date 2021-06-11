@@ -1,5 +1,6 @@
 import DashboardLayout from '../layout/DashboardLayout.vue'
 import Pagina from '../layout/Pagina.vue'
+import Login from '../layout/Login.vue'
 // GeneralViews
 import NotFound from '../pages/NotFoundPage.vue'
 
@@ -13,7 +14,8 @@ import Reportes from 'src/pages/Reportes.vue'
 
 //VISTA USUARIO
 import UserProfile from 'src/pages/UserProfile.vue'
-import UserTramite from 'src/pages/UserTramite.vue'
+import UserSeguimiento from 'src/pages/UserView/Tramite/UserSeguimiento.vue'
+import UserTramite from 'src/pages/UserView/Tramite/UserTramite.vue'
 
 //PANEL ADMNISTRADOR
 import Overview from 'src/pages/Overview.vue'
@@ -24,6 +26,10 @@ const routes = [
   {
     path: '/',
     component: Pagina
+  },
+  {
+    path: '/login',
+    component: Login
   },
   {
     path: '/admin',
@@ -69,10 +75,17 @@ const routes = [
         component: UserProfile
       },
  
+
       {
         path: 'user-tramite',
         name: 'UserTramite',
         component: UserTramite
+      },
+
+      {
+        path: 'user-seguimiento',
+        name: 'UserSeguimiento',
+        component: UserSeguimiento
       },
 
       {

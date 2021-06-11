@@ -6,16 +6,11 @@
     </ol>
     <div class="container-fluid">
         <p class="text-center mb-2 font-weight-bold  ">
-                   GESTIÓN DE TRÁMITES
+                   SEGUIMIENTO DE TRÁMITES
                   </p>
         <!-- Ejemplo de tabla Listado -->
         <div class="card">
-            <div class="card-header">
-            
-                <button type="button" @click="abrirModal('expediente','registrar')" class="btn btn-secondary">
-                    <i class="icon-plus"></i>&nbsp;Nuevo
-                </button>
-            </div>
+
             <div class="card-body">
                 <div class="form-group row">
                     <div class="col-md-6">
@@ -45,15 +40,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="expediente in arrayExpediente" :key="expediente.id">
-                            <td>
-                                <button type="button" @click="abrirModal('expediente','actualizar', expediente)" class="btn btn-warning btn-sm">
-                                    <i class="icon-pencil"></i>
-                                </button> &nbsp;
-                              <button type="button" class="btn btn-outline-success btn-sm">
-                               
-                                      <i class="nc-icon nc-send"></i>
-                                 
-                                </button> &nbsp;
+                            <td>                            
                                 <template v-if="expediente.condicion">
                                     <button type="button" class="btn btn-danger btn-sm" @click="desactivarExpediente(expediente.id)">
                                         <i class="icon-trash"></i>
@@ -102,87 +89,9 @@
         </div>
         <!-- Fin ejemplo de tabla Listado -->
     </div>
-    <!--Inicio del modal agregar/actualizar-->
-    <div class="modal fade" tabindex="-1" :class="{'mostrar' :modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-primary modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" v-text="tituloModal"></h4>
-                    <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="text-input">Cabecera</label>
-                            <div class="col-md-9">
-                                <input type="text" v-model="cabecera_documento" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="text-input">Tipo de documento</label>
-                            <div class="col-md-9">
-                                <select class="custom-select w-100" v-model="tipo_documento">
-                                    <option disabled value="">Seleccione una opción</option>
-                                    <option>Solicitud</option>
-                                    <option>Carta</option>
-                                    <option>Informe</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="text-input">Asunto</label>
-                            <div class="col-md-9">
-                                <input type="text" v-model="asunto" class="form-control">
-                            </div>
-                        </div>
-
-                    
-
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="text-input">N° de folios</label>
-                            <div class="col-md-9">
-                                <input type="text" v-model="nro_folios" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="text-input">Subir documento</label>
-                            <div class="col-md-9">
-                                <input @change="subirFile"  type="file" class="form-control" placeholder="">
-                                <input type="hidden" name="documento" id="documento"> 
-                            </div>
-                        </div>  
-
-
-                        <!-- <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone> -->
-
-                        <div v-show="errorExpediente" class="form-group row div-error">
-                            <div class="text-center text-error">
-                                <div v-for="error in errorMostrarExpediente" :key="error" v-text="error"></div>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                    <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="registrarExpediente()">Guardar</button>
-                    <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="actualizarExpediente()">Actualizar</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!--Fin del modal-->
+ 
 </main>
 </template>
-
 
 <script>
   import axios from 'axios';
@@ -251,7 +160,7 @@
                 let me = this;
                 let headers = {
                 'Accept' :  'application/json',
-                'Authorization' : 'Bearer 1|JymnGaSBMphIfpy2uBb0Qk10vN6eR91xXzyb76rL'
+                'Authorization' : 'Bearer 1|y7mSzkQ45rdUlgUI44ZbwHtpQoTyMzCXiGaiLujW'
                 }  
                 var url= 'http://127.0.0.1:8000/api/expediente';
                 axios.get(url,{headers}).then(function (response){
