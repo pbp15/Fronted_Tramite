@@ -1,7 +1,7 @@
 <template>
 <body>
    
-  <div class="click-closed"></div>
+  <div class="container">
 
   <!--componente header -->
       <headex/>
@@ -12,7 +12,7 @@
       <ofrecemos/> 
       <!--componente footer -->
       <footex/>  
-
+</div>
 </body>
 
 </template>
